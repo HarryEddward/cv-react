@@ -2,14 +2,33 @@ import React, { useState, useRef, useEffect, Suspense } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { Html, OrbitControls, useGLTF } from '@react-three/drei';
 import { gsap } from 'gsap';
+import Navbar from './components/Navbar';
+import AnimatedCursor from "react-animated-cursor"
+import { CiZoomIn } from "react-icons/ci";
+import { Howl } from 'howler';
 
 function Laptop() {
-  const { scene } = useGLTF('/models/laptop.gltf', true);  // Obtén la escena directamente
+  const { scene } = useGLTF('/models/untitled.gltf', true);  // Obtén la escena directamente
   const modelRef = useRef();  // Si planeas hacer manipulaciones adicionales con el modelo
   
   return scene ? (  // Verifica que `scene` esté disponible antes de renderizar
-    <primitive object={scene} ref={modelRef} />
-  ) : null;  // Retorna `null` mientras el modelo está cargando
+    <>
+    <primitive position={[0, -1, 0]} scale={[1,1, 1]} rotation={[0, 0, 0]} object={scene} ref={modelRef} />
+    <mesh>
+      <Html occlude distanceFactor={1} position={[0.13,-0.3,0.001]} rotation={[0, -1.58, 0]} transform>
+        
+        <div style={{ width: "750px", height: "460px", backgroundColor: "white", borderRadius: "10px", overflow: 'scroll' }}>
+          <iframe src="http://localhost:5174" title="Example iframe" width="100%" height="100%"></iframe>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+          </ul>
+        </div>
+      </Html>
+    </mesh>
+    </>
+  ) 
+  : null;  // Retorna `null` mientras el modelo está cargando
 }
 
 
@@ -63,16 +82,57 @@ function Box() {
   );
 }
 
+
 export default function App() {
+
   return (
-    <Canvas camera={{ position: [2, 1, 5], fov: 25 }}>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[1, 1, 1]} />
-      <pointLight position={[-1, -1, -1]} intensity={1000}/>
-      <Suspense fallback={null}>
-        <Laptop />
-      </Suspense>
-      <OrbitControls makeDefault />
-    </Canvas>
+    <div className='w-[100%] h-[100%]'>
+      <AnimatedCursor
+      innerSize={8}
+      outerSize={8}
+      color='0, 0, 0'
+      outerAlpha={0.2}
+      innerScale={0.7}
+      outerScale={5}
+      clickables={[
+        'a',
+        'input[type="text"]',
+        'input[type="email"]',
+        'input[type="number"]',
+        'input[type="submit"]',
+        'input[type="image"]',
+        'label[for]',
+        'select',
+        'textarea',
+        'button',
+        '.link'
+      ]}
+    />
+      
+      <Navbar/>
+      <div className='w-[100%] text-center'>
+        <span className='text-lg' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Haz zoom <CiZoomIn size={20} style={{marginLeft: '10px'}}/></span>
+      </div>
+      <div className='hidden xl:block relative w-[100%] h-[1px] bg-red-900 '>
+          <h1 className='w-[100%] font-black text-[50vh] text-center border-b-4 font-serif'>Adrian</h1>
+      </div>
+      
+      <Canvas className='' style={{ height: '100%' }} camera={{ position: [-15, 60, -10], fov: 4 }}>
+        <ambientLight intensity={1} />
+        <pointLight position={[0, 20, 20]} intensity={10000}/>
+        <pointLight position={[20, -20, -20]} intensity={10000}/>
+        <Suspense fallback={null}>
+          <Laptop />
+        </Suspense>
+        <OrbitControls
+        makeDefault
+        enableZoom={true}
+        enablePan={false}
+        enableRotate={true}
+        minPolarAngle={Math.PI / 2.2}
+        maxPolarAngle={Math.PI / 2.2}/>
+      </Canvas>
+  
+    </div>
   );
 }

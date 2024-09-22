@@ -24,7 +24,7 @@ class GLTFOptimizer {
             },
             };
             processGltf(gltf, options).then(function (results) {
-            fsExtra.writeJsonSync(`./optimized/${name_glb}.gltf`, results.gltf);
+            fsExtra.writeJsonSync(`../frontend/public/models/${name_glb}.gltf`, results.gltf);
             });
         });
     }
