@@ -1,7 +1,18 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, Suspense } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
-import { Html, OrbitControls } from '@react-three/drei';
+import { Html, OrbitControls, useGLTF } from '@react-three/drei';
 import { gsap } from 'gsap';
+
+function Laptop() {
+  const { scene } = useGLTF('/models/laptop.gltf', true);  // Obtén la escena directamente
+  const modelRef = useRef();  // Si planeas hacer manipulaciones adicionales con el modelo
+  
+  return scene ? (  // Verifica que `scene` esté disponible antes de renderizar
+    <primitive object={scene} ref={modelRef} />
+  ) : null;  // Retorna `null` mientras el modelo está cargando
+}
+
+
 
 function Box() {
   const boxRef = useRef(null);
@@ -57,8 +68,10 @@ export default function App() {
     <Canvas camera={{ position: [2, 1, 5], fov: 25 }}>
       <ambientLight intensity={0.5} />
       <pointLight position={[1, 1, 1]} />
-      <pointLight position={[-1, -1, -1]} />
-      <Box />
+      <pointLight position={[-1, -1, -1]} intensity={1000}/>
+      <Suspense fallback={null}>
+        <Laptop />
+      </Suspense>
       <OrbitControls makeDefault />
     </Canvas>
   );
