@@ -1,18 +1,36 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
     <nav className="flex justify-center bg-gray-100 py-4 py-10 border-b-2 border-b-black">
       <ul className="flex items-center ">
         <li className="lg:mr-12 mr-10">
-          <a href="#" className="text-gray-600 hover:text-black font-light text-black text-2xl">
+        <motion.div className='text-2xl'
+          whileHover={{
+            scale: 1.2,
+            opacity: 0.3
+          }}
+          transition={{
+            duration: 0.2
+          }}
+          >
             About
-          </a>
+          </motion.div>
+
         </li>
         <li className="lg2:mr-12">
-          <a href="#" className="text-gray-600 hover:text-black font-light text-black text-2xl">
+          <motion.div className='text-2xl'
+          whileHover={{
+            scale: 1.2,
+            opacity: 0.3
+          }}
+          transition={{
+            duration: 0.2
+          }}
+          >
             Contact
-          </a>
+          </motion.div>
         </li>
       </ul>
     </nav>

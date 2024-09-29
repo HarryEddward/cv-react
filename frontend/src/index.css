@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'EckhartDisplayBlack';
+  src: url('/fonts/EckhartDisplayBlack.woff2') format('woff2');
+  font-weight: 600;
+}
+
+/* styles.css o en tu archivo CSS global */
+.hidden-small {
+  display: block; /* Por defecto, mostrar el contenido */
+}
+
+@media (min-width: 480px) {
+  .hidden-small {
+    display: none; /* Ocultar en pantallas de 480px o menos */
+  }
+}
+
+
+
 * {
     box-sizing: border-box;
   }
