@@ -1,0 +1,15 @@
+{
+    "title": "Habilidades Ténicas",
+
+    "title_languges": "📕 Lenguajes De Programación",
+    "content_languages": "Python, Php, Javascript, Typescript, Golang, Rust (Principiante)",
+
+    "title_technologies": "📦 Técnologías & Marcos de trabajo",
+    "content_technologies": "FastAPI, Express.js, React, Angular, React Native, Vagrant, Docker, Docker Swarm, Ansible, Jenkins, Pico.v, Prometheus, Grafana, Github, Git, Jira",
+
+    "title_db": "💾 Bases De Datos",
+    "content_db": "Redis, Sqlite, MongoDB, RethinkDB",
+
+    "title_3D": "🎨 3D",
+    "content_3D": "Usé durante mucho tiempo Blender como programa principal para hacer modelos 3D, y comencé desde muy joven a hacer miniaturas para un canal eliminado haciendo miniaturas realistas inspiradas en Minecraft desde Cinema 4D."
+}

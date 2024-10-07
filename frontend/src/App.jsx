@@ -8,32 +8,33 @@ import { CiZoomIn } from "react-icons/ci";
 import './index.css';
 import Laptop from './components/Laptop';
 import { motion } from "framer-motion";
-
+import { useTranslation } from 'react-i18next';
+import { NavbarDesktop } from './components/NavbarDesktop';
 
 // Función para dividir un texto en letras individuales
 const SplitText = ({ text }) => {
-  const [perpetualMotion, setPerpetualMotion] = useState(false); // Estado para controlar cuándo iniciar el movimiento perpetuo
+  const [perpetualMotion, setPerpetualMotion] = useState(false);
 
   return (
     <span>
       {text.split("").map((letter, index) => (
         <motion.span
           key={index}
-          initial={{ opacity: 0, y: 150, x: 0 }} // Empieza fuera de la pantalla (arriba)
-          animate={perpetualMotion 
-            ? { y: [0, -10, 0], opacity: 1 } // Movimiento perpetuo (rebote suave)
-            : { opacity: 1, y: 0, x: 0 }} // Sube a su posición en la animación inicial
+          initial={{ opacity: 0, y: 150, x: 0 }}
+          animate={perpetualMotion
+            ? { y: [0, -10, 0], opacity: 1 }
+            : { opacity: 1, y: 0, x: 0 }}
           transition={{
-            duration: perpetualMotion ? 1.5 : 1,  // Duración del ciclo perpetuo y de la animación inicial
-            delay: index * 0.12,  // Escalonar la animación para cada letra
+            duration: perpetualMotion ? 1.5 : 1,
+            delay: index * 0.12,
             type: perpetualMotion ? "easeInOut" : "spring",
             stiffness: perpetualMotion ? undefined : 100,
-            repeat: perpetualMotion ? Infinity : 0,  // Repetir infinitamente en el movimiento perpetuo
+            repeat: perpetualMotion ? Infinity : 0,
           }}
           style={{ display: 'inline-block' }}
           onAnimationComplete={() => {
             if (index === text.length - 1) {
-              setPerpetualMotion(true); // Cuando la última letra termina, comienza el movimiento perpetuo
+              setPerpetualMotion(true);
             }
           }}
         >
@@ -44,30 +45,29 @@ const SplitText = ({ text }) => {
   );
 };
 
-// Función para dividir un texto en letras individuales
 const SplitTextSubTitle = ({ text, className }) => {
-  const [perpetualMotion, setPerpetualMotion] = useState(false); // Estado para controlar cuándo iniciar el movimiento perpetuo
+  const [perpetualMotion, setPerpetualMotion] = useState(false);
 
   return (
     <span className={className}>
       {text.split("").map((letter, index) => (
         <motion.span
           key={index}
-          initial={{ opacity: 0, y: 150, x: 0 }} // Empieza fuera de la pantalla (arriba)
-          animate={perpetualMotion 
-            ? { y: [0, -2, 0], opacity: 1 } // Movimiento perpetuo (rebote suave)
-            : { opacity: 1, y: 0, x: 0 }} // Sube a su posición en la animación inicial
+          initial={{ opacity: 0, y: 150, x: 0 }}
+          animate={perpetualMotion
+            ? { y: [0, -2, 0], opacity: 1 }
+            : { opacity: 1, y: 0, x: 0 }}
           transition={{
-            duration: perpetualMotion ? 1.5 : 1,  // Duración del ciclo perpetuo y de la animación inicial
-            delay: index * 0.1,  // Escalonar la animación para cada letra
+            duration: perpetualMotion ? 1.5 : 1,
+            delay: index * 0.1,
             type: perpetualMotion ? "easeInOut" : "spring",
             stiffness: perpetualMotion ? undefined : 40,
-            repeat: perpetualMotion ? Infinity : 0,  // Repetir infinitamente en el movimiento perpetuo
+            repeat: perpetualMotion ? Infinity : 0,
           }}
           style={{ display: 'inline-block' }}
           onAnimationComplete={() => {
             if (index === text.length - 1) {
-              setPerpetualMotion(true); // Cuando la última letra termina, comienza el movimiento perpetuo
+              setPerpetualMotion(true);
             }
           }}
         >
@@ -78,12 +78,12 @@ const SplitTextSubTitle = ({ text, className }) => {
   );
 };
 
-
 export default function App() {
-  const [laptopLoaded, setLaptopLoaded] = useState(false); // Estado para controlar la carga de la laptop
-  const [fontLoaded, setFontLoaded] = useState(false); // Estado para controlar la carga de la fuente
+  const [laptopLoaded, setLaptopLoaded] = useState(false);
+  const [fontLoaded, setFontLoaded] = useState(false);
 
-  // Efecto para cargar la fuente
+  const { t } = useTranslation();
+
   useEffect(() => {
     const font = new FontFaceObserver('EckhartDisplayBlack');
 
@@ -95,12 +95,11 @@ export default function App() {
   }, []);
 
   const handleLaptopLoaded = () => {
-    setLaptopLoaded(true);  // Cambia el estado cuando la laptop esté lista
+    setLaptopLoaded(true);
   };
 
   return (
-    <div className='w-[100%] h-[100%]'>
-      {/* Solo renderiza el contenido si la fuente y la laptop están cargadas */}
+    <div className='w-full h-full'>
       {fontLoaded && (
         <>
           <AnimatedCursor
@@ -125,29 +124,37 @@ export default function App() {
             ]}
           />
 
-          <Navbar />
-          <div className='w-[100%] text-center'>
-            <span className='text-lg' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              Poner el cursor encima <CiZoomIn size={20} style={{ marginLeft: '10px' }} />
+          {/* NavbarDesktop visible solo en tabletas o pantallas más grandes */}
+          <div className="hidden md:block">
+            <NavbarDesktop />
+          </div>
+
+          {/* Navbar visible solo en móviles */}
+          <div className="block md:hidden">
+            <Navbar />
+          </div>
+
+          <div className='w-full text-center'>
+            <span className='text-lg flex items-center justify-center'>
+              {t('info_cursor')} <CiZoomIn size={20} style={{ marginLeft: '10px' }} />
             </span>
           </div>
 
-          <div className='hidden xl:block relative w-[100%] h-[1px] bg-red-900'>
+          <div className='hidden xl:block relative w-full h-[1px]'>
             {laptopLoaded && (
-              <h1 className='w-[100%] font-black text-[50vh] text-center font-eckhart'>
+              <h1 className='w-full font-black text-[50vh] text-center font-eckhart text-black'>
                 <SplitText text="Adrian" />
               </h1>
             )}
           </div>
 
-          <div className='w-[100%] h-[1px] bg-red-900 hidden-small'>
+          <div className='w-full h-[1px] text-black block md:hidden'>
             {laptopLoaded && (
               <>
-                <h1 className='pt-10 w-[100%] font-black text-8xl text-center font-eckhart hidden-small'>
+                <h1 className='pt-10 w-full font-black text-8xl text-center font-eckhart text-black'>
                   <SplitText text="Adrian" />
                 </h1>
-
-                <SplitTextSubTitle text="Expert_Web_Developer" className="pl-[30%] hidden-small" />
+                <SplitTextSubTitle text="Expert_Web_Developer" className="pl-[30%]" />
               </>
             )}
           </div>
@@ -170,6 +177,9 @@ export default function App() {
           </Canvas>
         </>
       )}
+      <div className='w-full h-[700px] bg-red-300'>
+
+      </div>
     </div>
   );
 }

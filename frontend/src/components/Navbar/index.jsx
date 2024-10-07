@@ -1,39 +1,65 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import i18n from '../../i18n';
+import { useTranslation } from 'react-i18next';
+import { LangButton } from '../buttons/LangButton';
+import { HamburgerButton } from '../buttons/HamburgerButton';
 
-const Navbar = () => {
+const Navbar = ({ className }) => {
+  const { t } = useTranslation();
+
   return (
-    <nav className="flex justify-center bg-gray-100 py-4 py-10 border-b-2 border-b-black">
-      <ul className="flex items-center ">
-        <li className="lg:mr-12 mr-10">
-        <motion.div className='text-2xl'
-          whileHover={{
-            scale: 1.2,
-            opacity: 0.3
-          }}
-          transition={{
-            duration: 0.2
-          }}
-          >
-            About
-          </motion.div>
+    <div className={className}>
+      <nav className="flex flex-wrap justify-between items-center py-4 sticky top-0 z-20">
 
-        </li>
-        <li className="lg2:mr-12">
-          <motion.div className='text-2xl'
-          whileHover={{
-            scale: 1.2,
-            opacity: 0.3
-          }}
-          transition={{
-            duration: 0.2
-          }}
-          >
-            Contact
-          </motion.div>
-        </li>
-      </ul>
-    </nav>
+        {/* Contenedor vacío para empujar el contenido central */}
+        <div className="flex justify-end">
+          <div className='ml-4'>
+            <HamburgerButton/>
+          </div>
+        </div>
+
+        {/* Contenedor de los enlaces About y Contact centrados */}
+        {/*
+        <ul className="flex items-center justify-center w-1/3 space-x-4 sm:space-x-6 md:space-x-12">
+          <li>
+            <motion.div className="text-lg md:text-xl font-eckhart"
+              whileHover={{
+                scale: 1.2,
+                opacity: 0.3
+              }}
+              transition={{
+                duration: 0.2
+              }}
+            >
+              {t('about')}
+            </motion.div>
+          </li>
+          <li>
+            <motion.div className="text-lg md:text-xl font-eckhart"
+              whileHover={{
+                scale: 1.2,
+                opacity: 0.3
+              }}
+              transition={{
+                duration: 0.2
+              }}
+            >
+              {t('contact')}
+            </motion.div>
+          </li>
+        </ul>
+        */}
+
+        {/* Botón al final del Navbar */}
+        <div className="flex justify-end">
+          <div className='mr-3'>
+            <LangButton/>
+          </div>
+          
+        </div>
+      </nav>
+    </div>
   );
 };
 

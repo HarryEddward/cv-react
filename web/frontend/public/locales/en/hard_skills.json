@@ -1,0 +1,15 @@
+{
+    "title": "Hard Skills",
+
+    "title_languges": "📕 Proggraming Languages",
+    "content_languages": "Python, Php, Javascript, Typescript, Golang, Rust (Begginer)",
+
+    "title_technologies": "📦 Technologies & Frameworks",
+    "content_technologies": "FastAPI, Express.js, React, Angular, React Native, Vagrant, Docker, Docker Swarm, Ansible, Jenkins, Pico.v, Prometheus, Grafana, Github, Git, Jira",
+
+    "title_db": "💾 Databases",
+    "content_db": "Redis, Sqlite, MongoDB, RethinkDB",
+
+    "title_3D": "🎨 3D",
+    "content_3D": "I used Blender as my main program for creating 3D models for a long time, and I started at a very young age making thumbnails for a deleted channel, creating realistic Minecraft-inspired thumbnails using Cinema 4D."
+}
