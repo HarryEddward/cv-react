@@ -46,7 +46,7 @@ export default function Laptop({ onLoaded }) {
         onPointerEnter={handleMouseEnter}  // Aplica la animación cuando el mouse está sobre el modelo
         onPointerLeave={handleMouseLeave}  // Aplica la animación cuando el mouse deja el modelo
       >
-        <Html occlude distanceFactor={1} position={[0.13, 0.7, 0.001]} rotation={[0, -1.58, 0]} transform>
+        <Html occlude distanceFactor={1} position={[0.12, 0.7, 0.001]} rotation={[0, -1.57, 0]} transform>
           <div style={{ width: "750px", height: "460px", backgroundColor: "white", borderRadius: "10px", overflow: 'scroll' }}>
             <iframe src="http://localhost:5174" title="Example iframe" width="100%" height="100%"></iframe>
           </div>
