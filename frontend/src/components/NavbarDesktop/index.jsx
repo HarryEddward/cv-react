@@ -102,6 +102,7 @@ export function NavbarDesktop({ className }) {
         {/* Menú vertical a la derecha */}
         
         </nav>
+        
     </div>
   );
 }

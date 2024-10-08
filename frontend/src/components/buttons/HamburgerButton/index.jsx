@@ -1,7 +1,10 @@
 import { motion, transform } from 'framer-motion';
 import React from 'react';
+import useNavbarStore from '../../../store/navbarStore';
 
 export function HamburgerButton() {
+
+    const { toggleNavbar } = useNavbarStore();
 
     const variants = {
         hover: {
@@ -12,9 +15,10 @@ export function HamburgerButton() {
             }
         },
         tap: {
-            scale: 0.9,
+            scale: 0.9, // Escalado del botón completo
             transition: {
-                duration: 0.5
+                duration: 0.5,
+                staggerChildren: 0.1, // Stagger para animar los divs con un pequeño retraso
             }
         }
     };
@@ -32,13 +36,14 @@ export function HamburgerButton() {
     return (
         <div>
         
-            <div className='flex justify-center items-center h-16 w-16 rounded-md'>
+            <div className='flex justify-center items-center h-16 w-16 rounded-md overflow-hidden'>
                 <motion.button
                     className='w-8 h-auto'
                     variants={variants} // Aplica el escalado al botón completo
                     whileHover="hover" // Activa el hover en el botón
                     initial="initial"
                     whileTap="tap"
+                    onClick={() => toggleNavbar()}
                     
                 >
                     <div className='flex flex-col space-y-[8px]'>

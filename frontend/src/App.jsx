@@ -150,12 +150,12 @@ export default function App() {
 
           <div className='w-full h-[1px] text-black block md:hidden'>
             {laptopLoaded && (
-              <>
+              <div className='text-center'>
                 <h1 className='pt-10 w-full font-black text-8xl text-center font-eckhart text-black'>
                   <SplitText text="Adrian" />
                 </h1>
-                <SplitTextSubTitle text="Expert_Web_Developer" className="pl-[30%]" />
-              </>
+                <SplitTextSubTitle text="Expert_Web_Developer" />
+              </div>
             )}
           </div>
 
@@ -177,9 +177,6 @@ export default function App() {
           </Canvas>
         </>
       )}
-      <div className='w-full h-[700px] bg-red-300'>
-
-      </div>
     </div>
   );
 }
