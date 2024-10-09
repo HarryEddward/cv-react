@@ -154,7 +154,7 @@ export default function App() {
                 <h1 className='pt-10 w-full font-black text-8xl text-center font-eckhart text-black'>
                   <SplitText text="Adrian" />
                 </h1>
-                <SplitTextSubTitle text="Expert_Web_Developer" />
+                <SplitTextSubTitle text="Full-Stack_Web_Developer" />
               </div>
             )}
           </div>

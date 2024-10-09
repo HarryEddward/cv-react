@@ -17,7 +17,7 @@ export function Header() {
                     animate={{ opacity: 1, y: 0 }}  // Estado final (cuando se carga)
                     transition={{ duration: 1 }}  // Duración de la animación
                 >
-                    Expert web developer, <CountUp end={age} duration={6}/>
+                    Full stack developer, <CountUp end={age} duration={6}/>
                 </motion.h1>
                 <h2 className="text-3xl font-bold text-left text-gray-700">Experience with MultiPlatform App's</h2> {/* Alineado a la izquierda */}
                 <h2 className="text-3xl font-bold text-left text-gray-700">Notions with DevOps</h2> {/* Alineado a la izquierda */}
