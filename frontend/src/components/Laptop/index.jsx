@@ -48,7 +48,7 @@ export default function Laptop({ onLoaded }) {
       >
         <Html occlude distanceFactor={1} position={[0.12, 0.7, 0.001]} rotation={[0, -1.57, 0]} transform>
           <div style={{ width: "750px", height: "460px", backgroundColor: "white", borderRadius: "10px", overflow: 'scroll' }}>
-            <iframe src="https://iy0qhg-ip-188-26-210-20.tunnelmole.net" title="Example iframe" width="100%" height="100%"></iframe>
+            <iframe src="http://localhost:5174" title="Example iframe" width="100%" height="100%"></iframe>
           </div>
         </Html>
       </primitive>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Html, OrbitControls } from '@react-three/drei';
+import { Float, Html, OrbitControls } from '@react-three/drei';
 import Navbar from './components/Navbar';
 import AnimatedCursor from "react-animated-cursor";
 import FontFaceObserver from 'fontfaceobserver';
@@ -164,7 +164,14 @@ export default function App() {
             <pointLight position={[0, 20, 20]} intensity={10000} />
             <pointLight position={[20, -20, -20]} intensity={10000} />
             <Suspense fallback={null}>
-              <Laptop onLoaded={handleLaptopLoaded} />
+              <Float
+              speed={1}
+              rotationIntensity={0.5}
+              floatingRange={[0.05, 0.05]}
+              >
+                <Laptop onLoaded={handleLaptopLoaded} />
+              </Float>
+              
             </Suspense>
             <OrbitControls
               makeDefault
