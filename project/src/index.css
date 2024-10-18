@@ -8,14 +8,15 @@
   font-weight: 600;
 }
 
-/* styles.css o en tu archivo CSS global */
+/****
+/ styles.css o en tu archivo CSS global /
 .hidden-small {
-  display: block; /* Por defecto, mostrar el contenido */
+  display: block; /* Por defecto, mostrar el contenido /
 }
 
 @media (min-width: 480px) {
   .hidden-small {
-    display: none; /* Ocultar en pantallas de 480px o menos */
+    display: none; / Ocultar en pantallas de 480px o menos /
   }
 }
 
@@ -37,4 +38,5 @@
   body {
     background: #f0f0f0;
   }
+**/
   

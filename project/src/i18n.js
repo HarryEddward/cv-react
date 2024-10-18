@@ -1,30 +1,21 @@
 // i18n.js
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import Backend from 'i18next-http-backend'; // Carga los archivos de traducción
+import LanguageDetector from 'i18next-browser-languagedetector'; // Detecta el idioma desde el navegador
 
 i18n
-  .use(initReactI18next) // pasa i18n a la instancia de react-i18next
+  .use(Backend) // Cargar archivos de traducción
+  .use(LanguageDetector) // Detectar idioma
+  .use(initReactI18next) // Inicializar con React
   .init({
-    resources: {
-      en: {
-        translation: {
-          info_cursor: "Put the cursor over",
-          about: "About",
-          contact: "Contact",
-        },
-      },
-      es: {
-        translation: {
-          info_cursor: "Poner el cursor encima",
-          about: "Acerca",
-          contact: "Contacto",
-        },
-      },
+    fallbackLng: 'en', // Idioma por defecto si no hay traducción disponible
+    debug: true, // Activa la depuración para saber cuándo ocurren problemas
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json', // Ruta donde se encuentran los archivos de traducción
     },
-    lng: "es", // idioma por defecto
-    fallbackLng: "es", // idioma por defecto si la traducción no está disponible
     interpolation: {
-      escapeValue: false, // react ya se encarga de la seguridad
+      escapeValue: false, // React ya protege contra XSS
     },
   });
 

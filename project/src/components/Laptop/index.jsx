@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { Html, useGLTF } from '@react-three/drei';
 import gsap from 'gsap';
 
-export default function Laptop({ onLoaded }) {
+export const Laptop = ({ onLoaded }) => {
   const { scene } = useGLTF('/models/untitled.gltf', true);
   const modelRef = useRef();
 
