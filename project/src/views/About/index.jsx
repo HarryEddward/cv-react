@@ -1,14 +1,11 @@
 import React from 'react';
 import { Navbar } from '../../components/Navbar';
 import { motion } from 'framer-motion';
+import { Footer } from '../../components/Footer';
 
 export const AboutView = () => {
     return (
-        <motion.div
-            initial={{ opacity: 0, filter: 'blur(10px)', scale: 1.05 }}
-            animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
-            transition={{ duration: 2 }}
-        >
+        <div>
             <div>
                 <Navbar />
                 <div>
@@ -23,7 +20,7 @@ export const AboutView = () => {
                                 <div className='flex justify-center'>
                                     <img
                                         className='w-[100%] max-w-[400px] min-w-[100px] h-auto'
-                                        src="/img/img1.png"
+                                        src="/img/img1.jpg"
                                         alt=""
                                     />
                                 </div>
@@ -61,7 +58,8 @@ export const AboutView = () => {
                         </div>
                     </div>
                 </div>
+                <Footer/>
             </div>
-        </motion.div>
+        </div>
     );
 };

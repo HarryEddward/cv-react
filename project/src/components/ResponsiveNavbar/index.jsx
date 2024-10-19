@@ -6,6 +6,7 @@ import { LangButton } from '../buttons/LangButton';
 import { HamburgerButton } from '../buttons/HamburgerButton';
 import useNavbarStore from '../../store/navbarStore';
 import { Link } from 'react-router-dom';
+import { arrayNavbarItems } from '../../constants';
 
 export const ResponsiveNavbar = ({ className }) => {
   const { t } = useTranslation();
@@ -62,32 +63,20 @@ export const ResponsiveNavbar = ({ className }) => {
           animate={isOpen ? 'open' : 'closed'}
           >
             <ul className=''>
-              
-              <li>
-                <motion.button
-                className='font-eckhart text-4xl p-2 rounded-lg underline'
-                whileTap={{
-                  x: 15
-                }}
-                >
-                  <Link to='/about'>
-                    <span>About</span>
-                  </Link>
-                </motion.button>
-              </li>
-              <li>
-                <motion.button
-                className='font-eckhart text-4xl p-2 rounded-lg border-gr underline'
-                whileTap={{
-                  x: 15
-                }}
-                >
-                  <Link to='/contact'>
-                    <span>Contact</span>
-                  </Link>
+              {arrayNavbarItems.map((route, i) => (
                   
-                </motion.button>
-              </li>
+                  <div key={i}>
+                    <motion.button
+                    className='font-eckhart text-4xl p-2 rounded-lg underline'
+                    whileTap={{
+                      x: 15
+                    }}
+                    >
+                      <Link to={route.path}>{route.name}</Link>
+                    </motion.button>
+  
+                  </div>
+              ))}
               
             </ul>
           
