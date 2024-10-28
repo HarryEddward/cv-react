@@ -1,0 +1,10 @@
+
+/*
+Thanks for using FonitfyJS here can you manage all of the proccesed fonts for your project, enjoy!
+*/
+@tailwind utilities;
+
+@font-face {
+    font-family: 'ECKHART_display_black';
+    src: url('./public/fonts/fontify/eckhart/display_black.woff2') format('woff2');
+}

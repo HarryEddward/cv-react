@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('./loader/fonts/DMSans/index.css');
 
 @font-face {
   font-family: 'EckhartDisplayBlack';

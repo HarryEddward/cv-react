@@ -1,3 +1,5 @@
+import { configFontifyFonts } from './fontifyTailwind';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -6,9 +8,7 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        eckhart: ['EckhartDisplayBlack', 'sans-serif'],
-      },
+      fontFamily: configFontifyFonts,
 
       screens: {
         'xs': '480px',  // breakpoint personalizado para pantallas extra pequeñas

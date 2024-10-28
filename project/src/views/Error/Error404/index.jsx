@@ -27,7 +27,7 @@ export const Error404View = () => {
                 <div className='flex justify-center items-center h-[100vh]'>
                     <div className='flex flex-col gap-4'>
                         
-                        <h1 className='font-eckhart lg:text-9xl text-7xl flex'>
+                        <h1 className='font-ECKHART_display_black lg:text-9xl text-7xl flex'>
                             <span>Error</span>
                             <motion.div
                             initial={{

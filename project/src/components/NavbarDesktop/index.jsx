@@ -49,7 +49,7 @@ export function NavbarDesktop({ className }) {
             <div className="w-1/3 flex justify-end relative">
             <div className="absolute top-0 right-0 h-screen pr-4 mt-3">
         
-                <ul className="font-black font-eckhart text-right space-y-3 mt-12 border-l-gray-300 border-l-2 pl-5 mr-10">
+                <ul className="font-black font-ECKHART_display_black text-right space-y-3 mt-12 border-l-gray-300 border-l-2 pl-5 mr-10">
                 <LangButton/>
                 <li>
                     <motion.button

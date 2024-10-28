@@ -67,7 +67,7 @@ export const ResponsiveNavbar = ({ className }) => {
                   
                   <div key={i}>
                     <motion.button
-                    className='font-eckhart text-4xl p-2 rounded-lg underline'
+                    className='font-ECKHART_display_black text-4xl p-2 rounded-lg underline'
                     whileTap={{
                       x: 15
                     }}

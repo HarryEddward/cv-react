@@ -4,10 +4,8 @@ import { BlurScaleAnimation } from '../../components/transitions/BlurScaleAnimat
 
 export const HomePage = () => {
     return (
-        <div>
-            <BlurScaleAnimation>
-                <HomeView/>
-            </BlurScaleAnimation>
+        <div>        
+            <HomeView/>
         </div>
     );
 };

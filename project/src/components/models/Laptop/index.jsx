@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Html, useGLTF } from '@react-three/drei';
 import gsap from 'gsap';
+import { AppCV } from "../../../microfrontends/CV/App";
 
 export const Laptop = ({ onLoaded }) => {
   const { scene } = useGLTF('/models/untitled.gltf', true);
@@ -48,7 +49,8 @@ export const Laptop = ({ onLoaded }) => {
       >
         <Html occlude distanceFactor={1} position={[0.12, 0.7, 0.001]} rotation={[0, -1.57, 0]} transform>
           <div style={{ width: "750px", height: "460px", backgroundColor: "white", borderRadius: "10px", overflow: 'scroll' }}>
-            <iframe src="http://localhost:5174" title="Example iframe" width="100%" height="100%"></iframe>
+            {/*<iframe src="http://localhost:5174" title="Example iframe" width="100%" height="100%"></iframe>*/}
+            <AppCV/>
           </div>
         </Html>
       </primitive>
